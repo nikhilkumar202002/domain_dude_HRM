@@ -7,6 +7,7 @@ import {
   mockTasks,
   mockEmployees,
   mockInvoices,
+  mockPayments,
   mockNotificationsList,
   currentUser
 } from '../data/mockData';
@@ -28,6 +29,7 @@ export const AppProvider = ({ children }) => {
   const [tasks, setTasks] = useState(mockTasks);
   const [employees, setEmployees] = useState(mockEmployees);
   const [invoices, setInvoices] = useState(mockInvoices);
+  const [payments, setPayments] = useState(mockPayments);
   const [notifications, setNotifications] = useState(mockNotificationsList);
 
   // Global hotkey Ctrl+K / Cmd+K listener for global search
