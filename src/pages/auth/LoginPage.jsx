@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import {
   ShieldCheck,
   Mail,
@@ -7,16 +7,8 @@ import {
   Eye,
   EyeOff,
   ArrowRight,
-  CheckCircle2,
-  Building2,
-  Users,
-  Briefcase,
-  DollarSign,
-  Key,
-  Sparkles,
-  HelpCircle,
-  X,
   Check,
+  X,
 } from 'lucide-react';
 import { Modal } from '../../components/common/Modal';
 
@@ -55,7 +47,7 @@ export const LoginPage = () => {
   };
 
   // Demo Role Presets
-  const applyDemoRole = (demoEmail, demoRole) => {
+  const applyDemoRole = (demoEmail) => {
     setEmail(demoEmail);
     setPassword('demoPass123!');
   };
@@ -73,115 +65,28 @@ export const LoginPage = () => {
   };
 
   return (
-    <div className="min-h-screen w-full bg-slate-50 font-sans antialiased grid grid-cols-1 lg:grid-cols-12">
-      {/* =================================================================== */}
-      {/* LEFT COLUMN: MINIMAL BRAND & VISUAL AREA (DESKTOP) */}
-      {/* =================================================================== */}
-      <div className="hidden lg:flex lg:col-span-5 xl:col-span-5 bg-slate-900 text-white p-12 flex-col justify-between relative overflow-hidden border-r border-slate-800">
-        {/* Subtle background glow effect */}
-        <div className="absolute -top-40 -left-40 h-96 w-96 rounded-full bg-[#0066FF]/20 blur-3xl" />
-        <div className="absolute -bottom-40 -right-40 h-96 w-96 rounded-full bg-indigo-600/15 blur-3xl" />
-
-        {/* TOP BRAND HEADER */}
-        <div className="relative z-10 space-y-2">
-          <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#0066FF] text-white shadow-lg shadow-blue-500/30">
-              <ShieldCheck className="h-6 w-6 stroke-[2.5]" />
-            </div>
-            <div>
-              <h1 className="text-xl font-extrabold tracking-tight text-white">Domain Dude</h1>
-              <span className="text-[10px] font-bold uppercase tracking-wider text-blue-400 block">
-                Business Operations Platform
-              </span>
-            </div>
+    <div className="min-h-screen w-full bg-slate-50 font-sans antialiased flex items-center justify-center p-4 sm:p-6 lg:p-8">
+      {/* CENTERED LOGIN CARD */}
+      <div className="w-full max-w-md space-y-6">
+        {/* BRAND LOGO HEADER */}
+        <div className="text-center space-y-2">
+          <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-[#0066FF] text-white shadow-lg shadow-blue-500/20 mb-1">
+            <ShieldCheck className="h-7 w-7 stroke-[2.5]" />
           </div>
+          <h1 className="text-2xl font-extrabold text-slate-900 tracking-tight">Domain Dude</h1>
+          <p className="text-xs font-semibold text-slate-500">Business Operations Platform</p>
         </div>
 
-        {/* MIDDLE STATEMENT & FEATURES */}
-        <div className="relative z-10 space-y-8 my-auto max-w-md">
-          <div className="space-y-3">
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 px-3 py-1 text-xs font-semibold text-blue-400">
-              <Sparkles className="h-3.5 w-3.5" /> Next-Gen Enterprise OS
-            </span>
-            <h2 className="text-2xl xl:text-3xl font-extrabold text-white leading-tight">
-              "One workspace for your people, projects and business operations."
-            </h2>
-            <p className="text-xs text-slate-400 leading-relaxed">
-              Consolidate your sales CRM, project delivery, HR attendance, payroll processing, and financial ledgers into a single unified platform.
-            </p>
-          </div>
-
-          {/* Key Capabilities List */}
-          <div className="space-y-3 text-xs pt-4 border-t border-slate-800">
-            {[
-              { icon: Briefcase, text: 'Sales Enquiries, Proposals & Client CRM' },
-              { icon: Users, text: 'Employee Directory, Attendance & Payroll' },
-              { icon: Building2, text: 'Project Delivery, Kanban & Work Schedule' },
-              { icon: DollarSign, text: 'Invoicing, Payments & Expense Management' },
-            ].map((item, idx) => {
-              const ItemIcon = item.icon;
-              return (
-                <div key={idx} className="flex items-center gap-3 text-slate-300">
-                  <div className="flex h-6 w-6 items-center justify-center rounded-lg bg-slate-800 text-blue-400 shrink-0">
-                    <ItemIcon className="h-3.5 w-3.5" />
-                  </div>
-                  <span className="font-medium">{item.text}</span>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-
-        {/* BOTTOM CERTIFICATION & COMPLIANCE FOOTER */}
-        <div className="relative z-10 flex items-center justify-between text-[11px] text-slate-500 border-t border-slate-800/80 pt-6">
-          <span>v2.4.0 Enterprise Edition</span>
-          <span className="flex items-center gap-1 text-slate-400">
-            <Lock className="h-3 w-3 text-emerald-400" /> SOC2 Type II Certified
-          </span>
-        </div>
-      </div>
-
-      {/* =================================================================== */}
-      {/* RIGHT COLUMN: LOGIN CARD & FORM */}
-      {/* =================================================================== */}
-      <div className="lg:col-span-7 xl:col-span-7 flex flex-col justify-between p-6 sm:p-12 lg:p-16 min-h-screen">
-        {/* Top Header / Mobile Brand Header */}
-        <div className="flex items-center justify-between">
-          {/* Mobile Only Brand Header */}
-          <div className="flex lg:hidden items-center gap-2.5">
-            <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#0066FF] text-white shadow-md">
-              <ShieldCheck className="h-5 w-5 stroke-[2.5]" />
-            </div>
-            <div>
-              <h1 className="text-base font-extrabold text-slate-900">Domain Dude</h1>
-              <span className="text-[9px] font-bold text-slate-500 uppercase tracking-wider block">
-                Business OS
-              </span>
-            </div>
-          </div>
-
-          <div className="ml-auto flex items-center gap-2 text-xs font-semibold text-slate-500">
-            <span>Need assistance?</span>
-            <button
-              onClick={() => alert('Contacting system admin...')}
-              className="text-[#0066FF] hover:underline font-bold"
-            >
-              Contact Support
-            </button>
-          </div>
-        </div>
-
-        {/* CENTER LOGIN FORM CONTAINER */}
-        <div className="my-auto mx-auto w-full max-w-md py-8 space-y-6">
-          {/* Header text */}
-          <div className="space-y-1.5">
-            <h2 className="text-2xl font-extrabold text-slate-900 tracking-tight">Sign in to your account</h2>
+        {/* MAIN LOGIN CARD */}
+        <div className="rounded-2xl border border-slate-200 bg-white p-6 sm:p-8 shadow-xl space-y-6">
+          <div className="space-y-1">
+            <h2 className="text-lg font-bold text-slate-900">Sign in to your account</h2>
             <p className="text-xs text-slate-500">
               Enter your corporate email and password to access your workspace.
             </p>
           </div>
 
-          {/* Error Message Alert */}
+          {/* Error Alert */}
           {errorMessage && (
             <div className="rounded-xl bg-rose-50 border border-rose-200 p-3 text-xs font-semibold text-rose-700 flex items-center gap-2">
               <X className="h-4 w-4 shrink-0" />
@@ -239,7 +144,7 @@ export const LoginPage = () => {
               </div>
             </div>
 
-            {/* OPTIONS: REMEMBER ME */}
+            {/* REMEMBER ME OPTION */}
             <div className="flex items-center justify-between pt-1">
               <label className="flex items-center gap-2 cursor-pointer text-slate-700 font-medium select-none">
                 <input
@@ -252,7 +157,7 @@ export const LoginPage = () => {
               </label>
             </div>
 
-            {/* SUBMIT BUTTON */}
+            {/* SIGN IN BUTTON */}
             <button
               type="submit"
               disabled={isLoading}
@@ -272,16 +177,16 @@ export const LoginPage = () => {
             </button>
           </form>
 
-          {/* DEMO QUICK PRESETS (FOR EASY REVIEW) */}
-          <div className="pt-4 border-t border-slate-200 space-y-2">
-            <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider block text-center">
+          {/* DEMO LOGIN PRESETS */}
+          <div className="pt-4 border-t border-slate-100 space-y-2">
+            <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block text-center">
               Quick Demo Login Presets
             </span>
             <div className="grid grid-cols-2 gap-2 text-xs">
               <button
                 type="button"
-                onClick={() => applyDemoRole('alex.morgan@domaindude.com', 'Super Admin')}
-                className="p-2 rounded-lg border border-slate-200 bg-white hover:border-blue-300 hover:bg-blue-50/50 text-left transition-all"
+                onClick={() => applyDemoRole('alex.morgan@domaindude.com')}
+                className="p-2 rounded-lg border border-slate-200 bg-slate-50 hover:border-blue-300 hover:bg-blue-50/50 text-left transition-all"
               >
                 <span className="font-bold text-slate-900 block truncate">Alex Morgan</span>
                 <span className="text-[10px] text-blue-600 font-semibold block">Super Admin</span>
@@ -289,8 +194,8 @@ export const LoginPage = () => {
 
               <button
                 type="button"
-                onClick={() => applyDemoRole('s.chen@domaindude.com', 'HR Manager')}
-                className="p-2 rounded-lg border border-slate-200 bg-white hover:border-blue-300 hover:bg-blue-50/50 text-left transition-all"
+                onClick={() => applyDemoRole('s.chen@domaindude.com')}
+                className="p-2 rounded-lg border border-slate-200 bg-slate-50 hover:border-blue-300 hover:bg-blue-50/50 text-left transition-all"
               >
                 <span className="font-bold text-slate-900 block truncate">Sophia Chen</span>
                 <span className="text-[10px] text-emerald-600 font-semibold block">HR Manager</span>
@@ -298,8 +203,8 @@ export const LoginPage = () => {
 
               <button
                 type="button"
-                onClick={() => applyDemoRole('l.oconnor@domaindude.com', 'Project Manager')}
-                className="p-2 rounded-lg border border-slate-200 bg-white hover:border-blue-300 hover:bg-blue-50/50 text-left transition-all"
+                onClick={() => applyDemoRole('l.oconnor@domaindude.com')}
+                className="p-2 rounded-lg border border-slate-200 bg-slate-50 hover:border-blue-300 hover:bg-blue-50/50 text-left transition-all"
               >
                 <span className="font-bold text-slate-900 block truncate">Liam O'Connor</span>
                 <span className="text-[10px] text-indigo-600 font-semibold block">Project Lead</span>
@@ -307,8 +212,8 @@ export const LoginPage = () => {
 
               <button
                 type="button"
-                onClick={() => applyDemoRole('v.mehta@domaindude.com', 'Accountant')}
-                className="p-2 rounded-lg border border-slate-200 bg-white hover:border-blue-300 hover:bg-blue-50/50 text-left transition-all"
+                onClick={() => applyDemoRole('v.mehta@domaindude.com')}
+                className="p-2 rounded-lg border border-slate-200 bg-slate-50 hover:border-blue-300 hover:bg-blue-50/50 text-left transition-all"
               >
                 <span className="font-bold text-slate-900 block truncate">Vikram Mehta</span>
                 <span className="text-[10px] text-teal-600 font-semibold block">Accounts</span>
@@ -316,8 +221,8 @@ export const LoginPage = () => {
             </div>
           </div>
 
-          {/* SECURITY & PRIVACY FOOTER TEXT */}
-          <div className="pt-2 text-center space-y-2">
+          {/* SECURITY FOOTER TEXT */}
+          <div className="pt-2 text-center">
             <p className="text-[11px] text-slate-500 flex items-center justify-center gap-1.5">
               <Lock className="h-3 w-3 text-slate-400" />
               <span>Protected by 256-bit SSL encryption. Encrypted enterprise authentication.</span>
@@ -325,8 +230,8 @@ export const LoginPage = () => {
           </div>
         </div>
 
-        {/* BOTTOM TERMS & PRIVACY LINKS */}
-        <div className="flex items-center justify-center gap-4 text-[11px] text-slate-500 pt-4">
+        {/* FOOTER LINKS */}
+        <div className="flex items-center justify-center gap-4 text-[11px] text-slate-500">
           <a href="#privacy" onClick={(e) => e.preventDefault()} className="hover:text-slate-800 hover:underline">
             Privacy Policy
           </a>
