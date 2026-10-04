@@ -11,7 +11,8 @@ export const ProgressBar = ({ progress = 0, size = 'md', color = 'indigo', showL
   };
 
   const colors = {
-    indigo: 'bg-indigo-600',
+    brand: 'bg-[#0066FF]',
+    indigo: 'bg-[#0066FF]',
     emerald: 'bg-emerald-500',
     amber: 'bg-amber-500',
     rose: 'bg-rose-500',
@@ -27,7 +28,7 @@ export const ProgressBar = ({ progress = 0, size = 'md', color = 'indigo', showL
       )}
       <div className={clsx('w-full overflow-hidden rounded-full bg-slate-100', heights[size])}>
         <div
-          className={clsx('h-full transition-all duration-300 rounded-full', colors[color] || colors.indigo)}
+          className={clsx('h-full transition-all duration-300 rounded-full', colors[color] || colors.brand)}
           style={{ width: `${percentage}%` }}
         />
       </div>

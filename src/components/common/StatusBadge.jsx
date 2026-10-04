@@ -29,11 +29,11 @@ const statusStyles = {
   inactive: 'bg-slate-100 text-slate-600 border-slate-200',
   absent: 'bg-rose-50 text-rose-700 border-rose-200/60',
 
-  // Info / Blue / Indigo
-  new: 'bg-indigo-50 text-indigo-700 border-indigo-200/60',
-  qualified: 'bg-indigo-50 text-indigo-700 border-indigo-200/60',
-  review: 'bg-indigo-50 text-indigo-700 border-indigo-200/60',
-  proposal_sent: 'bg-indigo-50 text-indigo-700 border-indigo-200/60',
+  // Info / Brand Blue
+  new: 'bg-blue-50 text-[#0066FF] border-blue-200/60',
+  qualified: 'bg-blue-50 text-[#0066FF] border-blue-200/60',
+  review: 'bg-blue-50 text-[#0066FF] border-blue-200/60',
+  proposal_sent: 'bg-blue-50 text-[#0066FF] border-blue-200/60',
   to_do: 'bg-slate-100 text-slate-700 border-slate-200',
   draft: 'bg-slate-100 text-slate-600 border-slate-200',
 

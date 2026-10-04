@@ -93,14 +93,17 @@ export const Sidebar = () => {
     <div className="flex h-full flex-col justify-between bg-white text-slate-700 select-none">
       {/* Sidebar Header */}
       <div className="flex h-16 items-center justify-between border-b border-slate-200/80 px-4">
-        <NavLink to="/dashboard" className="flex items-center gap-3 overflow-hidden">
-          <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-gradient-to-tr from-indigo-700 to-indigo-500 text-white font-bold shadow-sm">
-            D
-          </div>
-          {!isSidebarCollapsed && (
-            <div className="flex flex-col truncate">
-              <span className="text-sm font-bold text-slate-900 tracking-tight leading-none">Domain Dude</span>
-              <span className="text-[10px] font-medium text-slate-400 mt-1 tracking-wider uppercase">Business OS</span>
+        <NavLink to="/dashboard" className="flex items-center gap-2.5 overflow-hidden">
+          {isSidebarCollapsed ? (
+            <div className="h-8 w-8 overflow-hidden shrink-0">
+              <img src="/Domine-Dude_black.png" alt="Domain Dude Logo" className="h-8 max-w-none object-left object-contain" />
+            </div>
+          ) : (
+            <div className="flex items-center gap-2">
+              <img src="/Domine-Dude_black.png" alt="Domain Dude" className="h-8 w-auto object-contain" />
+              <span className="rounded bg-sky-50 px-1.5 py-0.5 text-[9px] font-bold text-[#0066FF] border border-sky-200/60 uppercase tracking-wider">
+                OS
+              </span>
             </div>
           )}
         </NavLink>
@@ -134,14 +137,14 @@ export const Sidebar = () => {
                     className={clsx(
                       'group flex items-center rounded-lg px-3 py-2 text-xs font-semibold transition-all duration-150',
                       isActive
-                        ? 'bg-indigo-50/80 text-indigo-600 font-bold border-l-2 border-indigo-600'
+                        ? 'bg-blue-50/80 text-[#0066FF] font-bold border-l-2 border-[#0066FF]'
                         : 'text-slate-600 hover:bg-slate-100/70 hover:text-slate-900'
                     )}
                   >
-                    <Icon className={clsx('h-4 w-4 shrink-0 transition-colors', isActive ? 'text-indigo-600' : 'text-slate-400 group-hover:text-slate-600')} />
+                    <Icon className={clsx('h-4 w-4 shrink-0 transition-colors', isActive ? 'text-[#0066FF]' : 'text-slate-400 group-hover:text-slate-600')} />
                     {!isSidebarCollapsed && <span className="ml-3 truncate">{item.label}</span>}
                     {!isSidebarCollapsed && item.badge > 0 && (
-                      <span className="ml-auto rounded-full bg-indigo-600 px-2 py-0.5 text-[10px] font-semibold text-white">
+                      <span className="ml-auto rounded-full bg-[#0066FF] px-2 py-0.5 text-[10px] font-semibold text-white">
                         {item.badge}
                       </span>
                     )}

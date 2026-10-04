@@ -55,7 +55,7 @@ export const Topbar = () => {
         {/* Quick Create Button */}
         <button
           onClick={() => openQuickCreate('enquiry')}
-          className="flex items-center gap-1.5 rounded-lg bg-indigo-600 px-3 py-1.5 text-xs font-semibold text-white shadow-sm hover:bg-indigo-700 transition-colors"
+          className="flex items-center gap-1.5 rounded-lg bg-[#0066FF] px-3 py-1.5 text-xs font-semibold text-white shadow-sm hover:bg-[#0052D4] transition-colors"
         >
           <Plus className="h-3.5 w-3.5" />
           <span className="hidden sm:inline">Quick Create</span>
@@ -82,14 +82,14 @@ export const Topbar = () => {
                 <div className="flex items-center gap-2">
                   <h4 className="text-xs font-bold text-slate-900">Notifications</h4>
                   {unreadCount > 0 && (
-                    <span className="rounded-full bg-indigo-50 px-2 py-0.5 text-[10px] font-semibold text-indigo-600">
+                    <span className="rounded-full bg-blue-50 px-2 py-0.5 text-[10px] font-semibold text-[#0066FF]">
                       {unreadCount} new
                     </span>
                   )}
                 </div>
                 <button
                   onClick={markAllNotificationsRead}
-                  className="text-[11px] font-medium text-indigo-600 hover:underline flex items-center gap-1"
+                  className="text-[11px] font-medium text-[#0066FF] hover:underline flex items-center gap-1"
                 >
                   <Check className="h-3 w-3" /> Mark all read
                 </button>
@@ -100,7 +100,7 @@ export const Topbar = () => {
                   <div
                     key={n.id}
                     className={`p-2.5 rounded-lg text-xs transition-colors ${
-                      !n.read ? 'bg-indigo-50/40 border border-indigo-100' : 'hover:bg-slate-50'
+                      !n.read ? 'bg-blue-50/40 border border-blue-100' : 'hover:bg-slate-50'
                     }`}
                   >
                     <div className="flex items-center justify-between font-semibold text-slate-900 mb-0.5">
@@ -116,7 +116,7 @@ export const Topbar = () => {
                 <NavLink
                   to="/notifications"
                   onClick={() => setIsNotifOpen(false)}
-                  className="text-xs font-semibold text-indigo-600 hover:underline"
+                  className="text-xs font-semibold text-[#0066FF] hover:underline"
                 >
                   View all notifications →
                 </NavLink>

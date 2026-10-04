@@ -40,8 +40,8 @@ export const ChartCard = ({
             <AreaChart data={data} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
               <defs>
                 <linearGradient id="colorPrimary" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="5%" stopColor="#4F46E5" stopOpacity={0.2} />
-                  <stop offset="95%" stopColor="#4F46E5" stopOpacity={0} />
+                  <stop offset="5%" stopColor="#0066FF" stopOpacity={0.25} />
+                  <stop offset="95%" stopColor="#0066FF" stopOpacity={0} />
                 </linearGradient>
                 <linearGradient id="colorSecondary" x1="0" y1="0" x2="0" y2="1">
                   <stop offset="5%" stopColor="#94A3B8" stopOpacity={0.15} />
@@ -60,7 +60,7 @@ export const ChartCard = ({
                   fontSize: '12px',
                 }}
               />
-              <Area type="monotone" dataKey={dataKey} stroke="#4F46E5" strokeWidth={2.5} fillOpacity={1} fill="url(#colorPrimary)" />
+              <Area type="monotone" dataKey={dataKey} stroke="#0066FF" strokeWidth={2.5} fillOpacity={1} fill="url(#colorPrimary)" />
               {secondaryKey && (
                 <Area type="monotone" dataKey={secondaryKey} stroke="#94A3B8" strokeWidth={2} fillOpacity={1} fill="url(#colorSecondary)" />
               )}
@@ -79,7 +79,7 @@ export const ChartCard = ({
                   fontSize: '12px',
                 }}
               />
-              <Bar dataKey={dataKey} fill="#4F46E5" radius={[4, 4, 0, 0]} />
+              <Bar dataKey={dataKey} fill="#0066FF" radius={[4, 4, 0, 0]} />
               {secondaryKey && <Bar dataKey={secondaryKey} fill="#CBD5E1" radius={[4, 4, 0, 0]} />}
             </BarChart>
           )}
