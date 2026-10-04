@@ -6,6 +6,7 @@ export const StatCard = ({
   title,
   value,
   trend,
+  trendText,
   trendLabel = 'vs last month',
   icon: Icon,
   format = 'number',
@@ -13,8 +14,9 @@ export const StatCard = ({
   onClick,
   className
 }) => {
-  const isPositive = trend > 0;
-  const isNegative = trend < 0;
+  const displayTrend = trendText || (trend !== undefined ? `${trend > 0 ? '+' : ''}${trend}%` : null);
+  const isNegative = typeof trend === 'number' ? trend < 0 : String(displayTrend).includes('-');
+  const isPositive = typeof trend === 'number' ? trend > 0 : String(displayTrend).includes('+');
 
   const formattedValue = () => {
     if (format === 'currency') {
@@ -38,7 +40,7 @@ export const StatCard = ({
       <div className="flex items-center justify-between gap-2">
         <span className="text-xs font-medium text-slate-500 uppercase tracking-wider">{title}</span>
         {Icon && (
-          <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-slate-50 text-slate-600 group-hover:bg-indigo-50 group-hover:text-indigo-600 transition-colors">
+          <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-blue-50 text-[#0066FF] group-hover:bg-[#0066FF] group-hover:text-white transition-colors">
             <Icon className="h-4.5 w-4.5" />
           </div>
         )}
@@ -47,13 +49,13 @@ export const StatCard = ({
       <div className="mt-3 flex items-baseline gap-2">
         <div className="text-2xl font-bold tracking-tight text-slate-900">{formattedValue()}</div>
         {badgeText && (
-          <span className="rounded-md bg-indigo-50 px-2 py-0.5 text-xs font-semibold text-indigo-700">
+          <span className="rounded-md bg-blue-50 px-2 py-0.5 text-xs font-semibold text-[#0066FF]">
             {badgeText}
           </span>
         )}
       </div>
 
-      {trend !== undefined && (
+      {displayTrend && (
         <div className="mt-3 flex items-center gap-1.5 text-xs">
           <span
             className={clsx(
@@ -66,7 +68,7 @@ export const StatCard = ({
             {isPositive && <ArrowUpRight className="h-3.5 w-3.5" />}
             {isNegative && <ArrowDownRight className="h-3.5 w-3.5" />}
             {!isPositive && !isNegative && <Minus className="h-3.5 w-3.5" />}
-            {Math.abs(trend)}%
+            {displayTrend}
           </span>
           <span className="text-slate-500">{trendLabel}</span>
         </div>
