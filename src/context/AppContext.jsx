@@ -165,6 +165,12 @@ export const AppProvider = ({ children }) => {
     setNotifications((prev) => prev.map((n) => ({ ...n, read: true })));
   };
 
+  const toggleNotificationRead = (id) => {
+    setNotifications((prev) =>
+      prev.map((n) => (n.id === id ? { ...n, read: !n.read } : n))
+    );
+  };
+
   return (
     <AppContext.Provider
       value={{
@@ -192,6 +198,9 @@ export const AppProvider = ({ children }) => {
         expenses,
         setExpenses,
         notifications,
+        setNotifications,
+        toggleNotificationRead,
+        markAllNotificationsRead,
         addEnquiry,
         addClient,
         addProposal,
