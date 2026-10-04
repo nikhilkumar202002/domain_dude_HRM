@@ -27,12 +27,18 @@ import { NotificationsPage } from './pages/notifications/NotificationsPage';
 import { SettingsPage } from './pages/settings/SettingsPage';
 import { RolesSettingsPage } from './pages/settings/RolesSettingsPage';
 import { PermissionsSettingsPage } from './pages/settings/PermissionsSettingsPage';
+import { ProfilePage } from './pages/profile/ProfilePage';
+import { LoginPage } from './pages/auth/LoginPage';
 
 export function App() {
   return (
     <AppProvider>
       <BrowserRouter>
         <Routes>
+          {/* STANDALONE AUTH ROUTE */}
+          <Route path="login" element={<LoginPage />} />
+
+          {/* MAIN APP SHELL */}
           <Route path="/" element={<AppShell />}>
             <Route index element={<Navigate to="/dashboard" replace />} />
             <Route path="dashboard" element={<DashboardPage />} />
@@ -66,7 +72,8 @@ export function App() {
             {/* INSIGHTS */}
             <Route path="reports" element={<ReportsPage />} />
 
-            {/* SYSTEM */}
+            {/* SYSTEM & PROFILE */}
+            <Route path="profile" element={<ProfilePage />} />
             <Route path="notifications" element={<NotificationsPage />} />
             <Route path="settings" element={<SettingsPage />} />
             <Route path="settings/roles" element={<RolesSettingsPage />} />

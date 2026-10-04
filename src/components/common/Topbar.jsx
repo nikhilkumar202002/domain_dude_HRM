@@ -4,9 +4,10 @@ import { useApp } from '../../context/AppContext';
 import { Breadcrumbs } from './Breadcrumbs';
 import { Avatar } from './Avatar';
 import { Dropdown } from './Dropdown';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 
 export const Topbar = () => {
+  const navigate = useNavigate();
   const {
     toggleMobileSidebar,
     setIsGlobalSearchOpen,
@@ -61,7 +62,6 @@ export const Topbar = () => {
           <span className="hidden sm:inline">Quick Create</span>
         </button>
 
-        {/* Notifications Button */}
         {/* Notifications Button & Dropdown Component */}
         <div className="relative">
           <button
@@ -155,8 +155,8 @@ export const Topbar = () => {
             </button>
           }
           items={[
-            { label: 'View Profile', icon: User, onClick: () => alert('Opening user profile...') },
-            { label: 'Account Settings', icon: Settings, onClick: () => alert('Navigating to settings...') },
+            { label: 'View Profile', icon: User, onClick: () => navigate('/profile') },
+            { label: 'Account Settings', icon: Settings, onClick: () => navigate('/settings') },
             { label: 'Sign Out', icon: LogOut, danger: true, onClick: () => alert('User logged out demo.') },
           ]}
         />
