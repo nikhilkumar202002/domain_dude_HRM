@@ -8,6 +8,7 @@ import {
   mockEmployees,
   mockInvoices,
   mockPayments,
+  mockExpenses,
   mockNotificationsList,
   currentUser
 } from '../data/mockData';
@@ -30,6 +31,7 @@ export const AppProvider = ({ children }) => {
   const [employees, setEmployees] = useState(mockEmployees);
   const [invoices, setInvoices] = useState(mockInvoices);
   const [payments, setPayments] = useState(mockPayments);
+  const [expenses, setExpenses] = useState(mockExpenses);
   const [notifications, setNotifications] = useState(mockNotificationsList);
 
   // Global hotkey Ctrl+K / Cmd+K listener for global search
@@ -185,6 +187,10 @@ export const AppProvider = ({ children }) => {
         tasks,
         employees,
         invoices,
+        payments,
+        setPayments,
+        expenses,
+        setExpenses,
         notifications,
         addEnquiry,
         addClient,
