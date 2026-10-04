@@ -45,24 +45,27 @@ const statusStyles = {
 
 export const StatusBadge = ({ status, text, size = 'md', className }) => {
   const normalized = (status || text || '').toString().toLowerCase().replace(/\s+/g, '_');
-  const styleClass = statusStyles[normalized] || 'bg-gray-50 text-gray-700 border-gray-200';
+  const styleClass = statusStyles[normalized] || 'bg-slate-50 text-slate-700 border-slate-200';
 
   const sizeClasses = {
-    sm: 'px-2 py-0.5 text-xs font-medium',
-    md: 'px-2.5 py-1 text-xs font-medium',
-    lg: 'px-3 py-1.5 text-sm font-medium',
+    xs: 'px-1.5 py-0.5 text-[10px] font-semibold leading-none gap-1',
+    sm: 'px-2 py-0.5 text-[11px] font-medium leading-none gap-1',
+    md: 'px-2.5 py-0.5 text-xs font-medium leading-tight gap-1.5',
+    lg: 'px-3 py-1 text-xs font-semibold leading-normal gap-1.5',
   };
+
+  const selectedSizeClass = sizeClasses[size] || sizeClasses.md;
 
   return (
     <span
       className={clsx(
-        'inline-flex items-center gap-1.5 rounded-full border tracking-tight transition-colors',
-        sizeClasses[size],
+        'inline-flex items-center rounded-full border tracking-tight transition-colors whitespace-nowrap shrink-0',
+        selectedSizeClass,
         styleClass,
         className
       )}
     >
-      <span className="h-1.5 w-1.5 rounded-full bg-current opacity-80" />
+      <span className={clsx('rounded-full bg-current opacity-80 shrink-0', size === 'xs' ? 'h-1 w-1' : 'h-1.5 w-1.5')} />
       {text || status}
     </span>
   );
